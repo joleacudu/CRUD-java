@@ -1,0 +1,534 @@
+
+<html lang="es">
+  <head>
+    <!-- Tags para implementar bootstrap-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Bootstrap CSS -->
+   <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> -->
+   <link rel="stylesheet" href="css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="css/strength.css">
+   <link rel="stylesheet" href="css/estilos_menu.css">
+  
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        #myform input[type="password"],#myform input[type="text"]{
+        background:transparent;
+        width:84%;
+        }
+        #myform input[type="password"]:focus,#myform input[type="text"]:focus{
+        outline:0;
+        }
+        .strength_meter{
+        position: absolute;
+        left: 105px;
+        top: 0px;
+        width: 84%;
+        height: 36px;
+        z-index:-1;
+        border-radius:0px;
+        padding-right:0px;
+        }
+        .strength_meter div{
+        width:0%;
+        height: 39px;
+        text-align: right;
+        color: #000;
+        line-height: 43px;
+        padding-right: 12px;
+        }
+        .strength_meter div p{
+        position: absolute;
+        top: 22px;
+        right: 0px;
+        color: #FFF;
+        font-size:13px;
+        }
+        .veryweak{
+        background-color: #FFA0A0;
+        border-color: #F04040!important;
+        width:100%!important;
+        }
+        .weak{
+        background-color: #FFB78C;
+        border-color: #FF853C!important;
+        width:100%!important;
+        }
+        .medium{
+        background-color: #FFEC8B;
+        border-color: #FC0!important;
+        width:100%!important;
+        }
+        .strong{
+        background-color: #C3FF88;
+        border-color: #8DFF1C!important;
+        width:100%!important;
+        }
+    </style>
+    
+    <title>Menu - TG</title>
+
+  </head>
+
+  <body>
+    <header>
+      
+      <nav id="header" class="navbar navbar-dark bg-primary">
+        <div class="container">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./images/tg.png" alt="" width="100" height="70" class="d-inline-block align-text-middle">                          
+            </a>
+            <label>Tienda Generica</label>
+          </div>
+      </div>
+      </nav>
+    </header>
+
+<section>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Usuarios</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Clientes</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Proveedores</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-products-tab" data-bs-toggle="pill" data-bs-target="#pills-products" type="button" role="tab" aria-controls="pills-products" aria-selected="false">Productos</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-ventas-tab" data-bs-toggle="pill" data-bs-target="#pills-ventas" type="button" role="tab" aria-controls="pills-ventas" aria-selected="false">Ventas</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-reports-tab" data-bs-toggle="pill" data-bs-target="#pills-reports" type="button" role="tab" aria-controls="pills-reports" aria-selected="false">Reportes</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+
+ <!--        Contenido del primer tab USUARIOS ******************************************************************** -->
+
+           
+           <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <br>
+            
+			
+			
+            <form method="post" action="/tienda_generica/CrudUsuariosServlet" id="myform" name="formulario">
+            	<div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Cédula</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese Cédula"  id="campo_cedula" onkeypress="return soloNumeros(event)" name ="campo_ced" required>
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Nombres</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese Nombres" id="campo_nombre" onkeypress="return soloLetras(event)" name ="campo_nom">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Correo</span>
+                        <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="texto@texto.com" id="campo_correo" name ="campo_corr">
+                    </div>                    
+
+                </div>
+                <div class="col">
+
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Usuario</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese Usuario" id="campo_usuario" name ="campo_usu">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Contraseña</span>
+                        <input type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese Contraseña" id="campo_password" name ="campo_pass">
+                    </div>
+                </div>
+                </div>
+				<div class="col-12">
+                    <button type="reset" class="btn btn-primary">Limpiar</button>
+                </div>
+
+		
+            <script src="js/jquery.min.js"></script>
+            <script src="js/strength.min.js"></script>
+            <script id="rendered-js">
+                $(document).ready(function ($) {
+                $('#campo_password').strength({                   
+                    strengthClass: 'strength',
+                    strengthMeterClass: 'strength_meter',
+                    strengthButtonClass: 'button_strength',
+                    strengthButtonText: 'Mostrar Password',
+                    strengthButtonTextToggle: 'Ocultar Password' });
+                });
+            </script>
+            <br>
+            <div  class="row row-cols-lg-auto g-3 align-items-center" id="grupobotones">
+                
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" id="boton_consultar" name="boton_consu">Consultar</button>
+                </div>
+                
+                <div class="col-12">               	
+                  	<button type="submit" class="btn btn-primary"  id="boton_crear" name="boton_crea">Crear</button>            
+                </div>
+
+                <div class="col-12"> 
+                    <button type="submit" class="btn btn-primary"  name="boton_actu">Actualizar</button>
+                </div>
+                
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary"  name="boton_borra">Borrar</button>
+                </div>
+            </div>
+ 
+			
+		</form>	 
+		<script src="js/cambioDeServlet.js"></script>
+		<script src="js/leerDatos.js"></script>
+		<script src="js/scripts_validacion.js"></script>
+			
+       </div>
+        
+ <!--  Contenido del segundo tab Clientes ******************************************************************** -->   
+ 
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <br>
+            <form method="post" action="/tienda_generica/CrudClientesServlet" >
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Cedula</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese Cedula" name ="campo_cedulac" required>
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Nombres</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese Nombre" name ="campo_nombrec" >
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Dirección</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese Dirección" name ="campo_direccionc">
+                    </div>                    
+
+                </div>
+                <div class="col">
+
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Teléfono</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"placeholder="Ingrese Teléfono" name ="campo_telefonoc">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Correo Electrónico</span>
+                        <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="texto@texto.com" name ="campo_correoc" >
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="row row-cols-lg-auto g-3 align-items-center" id="grupobotones">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" name ="boton_consultac">Consultar</button>
+                </div>
+            
+                <div class="col-12">
+                <button type="submit" class="btn btn-primary" name ="boton_crearc">Crear</button>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" name ="boton_actualizac">Actualizar</button>
+                </div>
+                
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" name ="boton_borrac">Borrar</button>
+                </div>
+
+                <div class="col-12">
+                    <button type="reset" class="btn btn-primary">Limpiar</button>
+                </div>
+            </div>
+        </form>
+        </div>
+ <!--        Contenido del tercer tab Proovedores ******************************************************************** -->    
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <br>
+            <form method="post" action="/tienda_generica/CrudProveedoresServlet" >
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">NIT</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese NIT" name="campo_nitp">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Nombre Proveedor</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese Nombre Proveedor" name="campo_nombrep">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Dirección</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese dirección Proveedor" name="campo_direccionp">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Telefono</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese Teléfono" name="campo_telefonop">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Ciudad</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Ingrese Ciudad Proveedor" name="campo_ciudadp">
+                    </div>
+                </div>
+              </div>
+              <br>
+              <br>
+
+            <div class="row row-cols-lg-auto g-3 align-items-center" id="grupobotones">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" name="boton_consultap">Consultar</button>
+                </div>
+              
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary" name="boton_crearp">Crear</button>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" name="boton_actualizap">Actualizar</button>
+                </div>
+                
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" name="boton_borrap">Borrar</button>
+                </div>
+
+                <div class="col-12">
+                    <button type="reset" class="btn btn-primary">Limpiar</button>
+                </div>
+            </div>  
+        </form>          
+        </div>
+ <!--        Contenido del cuarto tab Productos ******************************************************************** -->  
+        <div class="tab-pane fade" id="pills-products" role="tabpanel" aria-labelledby="pills-products-tab">
+            <br>
+            <br><br><br>
+            <form class="row row-cols-lg-auto g-3 align-items-center" style="justify-content:center">             
+                <div class="col-12">
+                  <input type="file" name="archivo" accept=".pdf,.jpg,.png" multiple class="btn btn-primary" id="archivo"></input>
+                </div>
+              </form>
+              <br><br>
+              <form class="row row-cols-lg-auto g-3 align-items-center" id="grupobotones">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" name="cargarArc" id="cargarArc" disabled="disabled">Cargar</button>
+                </div>
+            </form> 
+            
+            
+        </div>
+<!--        Contenido del quinto tab Ventas ******************************************************************** --> 
+        <div class="tab-pane fade" id="pills-ventas" role="tabpanel" aria-labelledby="pills-ventas-tab">
+        	<div class="row row-cols-lg-auto g-3 align-items-center" id="linea_ppal">
+                <div class="col-12">
+                  <div class="input-group">
+                    <div class="input-group-text">Cédula</div>
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Número de Cédula">
+                  </div>
+                </div>
+                
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Consultar</button>
+                  </div>
+                  <div class="col-12">
+
+                <div class="input-group">
+                      <div class="input-group-text">Cliente</div>
+                      <input type="text" class="form-control" id="inlineFormInputGroupUsername" >
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="input-group">
+                      <div class="input-group-text">Consecutivo</div>
+                      <input type="text" class="form-control" id="inlineFormInputGroupUsername" >
+                    </div>
+                </div>   
+            </div>
+            <br>
+            <div class="tabla">
+                <div class="row">
+                    <div class="col"><label for="">Codigo Producto</label></div>
+                    <div class="col-1" id="botones_consu"></div>
+                    <div class="col"><label for="">Nombre Producto</label></div>
+                    <div class="col-1"><label for="">Cantidad</label></div>
+                    <div class="col"><label for="">Valor Total</label></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">#</span>
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-primary">Consultar</button>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">#</span>
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-primary">Consultar</button>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">#</span>
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-primary">Consultar</button>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-1"></div>
+                    <div class="col"></div>
+                    <div class="col-1"><label for="">Total Venta</label></div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-1"></div>
+                    <div class="col"></div>
+                    <div class="col-1"><label for="">Total IVA</label></div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-1"></div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                    </div>
+                    <div class="col-1"><label for="">Total con IVA</label></div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control">
+                          </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+<!--        Contenido del sexto tab Reportes ******************************************************************** --> 
+        <div class="tab-pane fade" id="pills-reports" role="tabpanel" aria-labelledby="pills-reports-tab">
+               <div class="d-grid gap-2 col-6 mx-auto" id="lists_reports">
+                <button class="btn btn-primary" type="button" id="list_users">Listado de Usuarios</button>
+                <button class="btn btn-primary" type="button" id="list_clients">Listado de Clientes</button>
+                <button class="btn btn-primary" type="button" id="list_sales">Ventas por Cliente</button>
+              </div>
+        
+        </div>
+      </div>
+</section>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer id="footer" class="pb-4 pt-4">
+    <div class="containerfoot">
+        <div class="row text-center">
+            <div class="col-12 col-lg">
+              <img src="./images/manual.png" alt="" width="65" height="55" >
+              <a href="#">Manual de Usuario</a>
+            </div>
+            <div class="col-12 col-lg">
+              <img src="./images/mision_tic_2022.png" alt="" width="90" height="60" >
+              <a href="#">Mision-TIC 2022</a>
+            </div>
+            <div class="col-12 col-lg">
+              <img src="./images/contacto.png" alt="" width="70" height="60" >
+              <a href="#">Contactanos</a>
+            </div>
+            </div>
+        </div>
+    </footer>
+  </body>
+</html>

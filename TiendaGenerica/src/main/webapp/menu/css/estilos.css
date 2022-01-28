@@ -1,0 +1,49 @@
+
+#header img{
+  vertical-align: middle;
+  margin-left: 30px;
+}
+nav{
+  text-align: center;
+  background-color:rgb(60, 43, 214);
+}
+
+
+nav label{
+  font-size: 30px;
+  color: white;
+}
+.container1{
+  margin-top:60px;
+  margin-bottom:40px;
+  margin-right:60px;
+  margin-left:60px;
+  padding: 20px;
+  border-style: solid;
+  border-width: 0.2px;
+  border-radius: 10px;
+}
+
+.col-form-label {
+  text-align: center;
+}
+
+#botones{
+  text-align: center;
+  padding-bottom: 20px;
+
+  
+}
+#contact{
+  width: 90px;
+  margin-left:auto;
+  margin-right: auto;
+}
+  #footer{
+    background-color: #0D6EFD;
+  }
+  #footer a{
+    color:white;
+  }
+
+  

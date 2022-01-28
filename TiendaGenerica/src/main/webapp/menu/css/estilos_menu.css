@@ -1,0 +1,61 @@
+header{
+    height: 30px;
+}
+section{
+    padding-top: 60px;
+    height: 400px;
+}
+
+nav label{
+    font-size: 30px;
+    color: white;
+  }
+
+#grupobotones{
+    justify-content: center;
+}
+.row-cols-lg-auto g-3 align-items-center{
+  justify-content: center;
+}
+#linea_ppal{
+  margin-left: 220px;
+}
+
+label{
+  
+  align-items: center;
+  justify-content: center;
+
+}
+.tabla{
+  align-items: center;
+  margin-left: 160px;
+  margin-right: 150px;
+  
+}
+
+
+#pills-ventas{
+  text-align: center;
+}
+#pills-reports{
+	margin: 80px;
+}
+
+ 
+#list_users{
+  margin: initial;
+}
+#list_clients{
+  margin: initial;
+}
+#list_sales{
+  margin: initial;
+}
+
+#footer{
+    background-color: #0D6EFD;
+  }
+  #footer a{
+    color:white;
+  }
